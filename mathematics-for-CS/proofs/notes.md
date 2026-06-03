@@ -1,6 +1,8 @@
 # Proofs
 
-## Intro
+## Notes
+
+### State-less Proofs
 
 The first unit of the course is about mathematical proofs, in general and not specifically proofs in cryptography. It is still nice to read it since cryptographic proof, no matter how much it doesn't look like it, still use these proof technique at core.
 The techniques we've seen so far are:
@@ -15,6 +17,8 @@ The techniques we've seen so far are:
     If we assume that the theorem to be proven is not correct, we will get to an impossible situation, a statement being both true and false. This results in a contradiction meaning our assumption at the start was false hence the theorem is correct.
 - Proof by induction:
     Proof by induction, from what I understood, induces one statement from another till you get to a general case (I genuinely refer you to the example in [second lecture note](./lecture-notes/mit6_1200j_s24_lec02.pdf)).
+
+### State Machines
 
 ## Questions
 
