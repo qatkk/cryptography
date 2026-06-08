@@ -6,5 +6,5 @@ fn main() {
         p: 7,
         g:3,
     };
-    println!("the  exponent result is {:?} ", element.mod_power(8));
+    println!("the  exponent result is {:?} ", element.mod_inv());
 }
