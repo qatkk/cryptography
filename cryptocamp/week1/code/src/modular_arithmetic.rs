@@ -58,8 +58,22 @@ mod tests {
                 &(p.clone() - 1.to_biguint().unwrap())
             ) == 1.to_biguint().unwrap()
         );
-        // assert!(mod_power(&(p-1.to_biguint().unwrap()), &p, &3.to_biguint().unwrap()) == p-1.to_biguint().unwrap());
-        // assert!(((mod_power(&18446744073709551615.to_biguint().unwrap(), &p, &(p-2.to_biguint().unwrap())) * 18446744073709551615.to_biguint().unwrap()) % p) == 1.to_biguint().unwrap());
+        assert!(
+            mod_power(
+                &(p.clone() - 1.to_biguint().unwrap()),
+                &p.clone(),
+                &3.to_biguint().unwrap()
+            ) == p.clone() - 1.to_biguint().unwrap()
+        );
+        assert!(
+            ((mod_power(
+                &18446744073709551615_u64.to_biguint().unwrap(),
+                &p.clone(),
+                &(p.clone() - 2.to_biguint().unwrap())
+            ) * 18446744073709551615_u64.to_biguint().unwrap())
+                % p)
+                == 1.to_biguint().unwrap()
+        );
     }
     #[test]
     fn test_inv() {
