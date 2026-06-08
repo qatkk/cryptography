@@ -31,3 +31,36 @@ impl GroupElement{
         self.mod_power(self.p - 2)
     }
 }
+#[cfg(test)]
+mod tests {
+    use crate::exponent::GroupElement;
+
+    #[test]
+    fn test_power() {
+        //  Largest prime fitting in u64
+        let mut test_element = GroupElement{
+            p: 18446744073709551557,
+            g: 2,            
+        };
+        assert!(test_element.mod_power(test_element.p-1) == 1);
+        test_element.g = 3;
+        assert!(test_element.mod_power(test_element.p-1) == 1);
+        test_element.g = test_element.p-1; 
+        assert!(test_element.mod_power(3) == test_element.p-1);
+        test_element.g = 18446744073709551615;
+        assert!(((test_element.mod_power(test_element.p-2) as u128 * test_element.g as u128) % test_element.p as u128) == 1);
+    }
+    #[test]
+    fn test_inv(){
+        //  Largest prime fitting in u64
+        let mut test_element = GroupElement{
+            p: 18446744073709551557,
+            g: 1,            
+        };
+        assert!(test_element.mod_inv() == 1);
+        test_element.g = test_element.p - 1; 
+        assert!(test_element.mod_inv() == test_element.p -1);
+        test_element.g = 2;
+        assert!(test_element.mod_inv() == (test_element.p + 1) /2);
+    }
+}
