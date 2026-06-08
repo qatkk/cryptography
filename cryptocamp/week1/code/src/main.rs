@@ -2,9 +2,9 @@ mod exponent;
 
 fn main() {
     println!("Hello, world!");
-    let g = exponent::GroupElement {
-        base: 5,
-        value:3,
+    let element = exponent::GroupElement {
+        p: 7,
+        g:3,
     };
-    println!("the  exponent result is {:?} ", g.exponent(3));
+    println!("the  exponent result is {:?} ", element.mod_power(8));
 }
